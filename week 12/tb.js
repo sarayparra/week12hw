@@ -13,8 +13,8 @@ var crudApp = new function () {
     this.createTable = function () {
 
         // Extract value for table header.
-        for (var i = 0; i < this.myBooks.length; i++) {
-            for (var key in this.myBooks[i]) {
+        for (var i = 0; i < this.myAlbums.length; i++) {
+            for (var key in this.myAlbums[i]) {
                 if (this.col.indexOf(key) === -1) {
                     this.col.push(key);
                 }
@@ -41,7 +41,7 @@ var crudApp = new function () {
 
             for (var j = 0; j < this.col.length; j++) {
                 var tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = this.myBooks[i][this.col[j]];
+                tabCell.innerHTML = this.myAlbums[i][this.col[j]];
             }
 
             // Dynamically create and add elements to table cells with events.
@@ -218,7 +218,7 @@ var crudApp = new function () {
         for (i = 1; i < this.col.length; i++) {
             var td = tab.getElementsByTagName("td")[i];
             if (td.childNodes[0].getAttribute('type') == 'text' || td.childNodes[0].tagName == 'SELECT') {  // CHECK IF ELEMENT IS A TEXTBOX OR SELECT.
-                this.myBooks[(activeRow - 1)][this.col[i]] = td.childNodes[0].value;      // SAVE THE VALUE.
+                this.myAlbums[(activeRow - 1)][this.col[i]] = td.childNodes[0].value;      // SAVE THE VALUE.
             }
         }
         this.createTable();     // REFRESH THE TABLE.
